@@ -51,9 +51,9 @@ Contact
 - Created: v1 — baseline scaffold for MLOps-first project
 
 Phân công :
-ModelAI : Lê Anh Thiên
-FastAPI : Nguyễn Đức Hải
-DVC : Trần Nhật Hoàng - Nguyễn Đức Minh - Hà Vĩnh Phước
-MLFlow : Trần Nhật Hoàng - Nguyễn Đức Minh - Hà Vĩnh Phước
-Airflow/Prefect : Trần Nhật Hoàng - Nguyễn Đức Minh - Hà Vĩnh Phước
-CI/CD : Trần Nhật Hoàng - Nguyễn Đức Minh - Hà Vĩnh Phước
+- ModelAI : Lê Anh Thiên
+- FastAPI : Nguyễn Đức Hải
+- DVC : Trần Nhật Hoàng - Nguyễn Đức Minh - Hà Vĩnh Phước
+- MLFlow : Trần Nhật Hoàng - Nguyễn Đức Minh - Hà Vĩnh Phước
+- Airflow/Prefect : Trần Nhật Hoàng - Nguyễn Đức Minh - Hà Vĩnh Phước
+- CI/CD : Trần Nhật Hoàng - Nguyễn Đức Minh - Hà Vĩnh Phước
