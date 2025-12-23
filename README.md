@@ -58,3 +58,63 @@ Phân công :
 - Airflow/Prefect : Trần Nhật Hoàng - Nguyễn Đức Minh - Hà Vĩnh Phước
 - CI/CD : Trần Nhật Hoàng - Nguyễn Đức Minh - Hà Vĩnh Phước
 
+```mermaid
+flowchart TD
+  subgraph Data
+    RAW["data/raw\n(Spider raw files)"]
+    PROCESSED["data/processed\n(model-friendly JSON)"]
+    DVC["DVC Remote\n(dvc add / dvc push)"]
+    RAW --> DVC
+    PROCESSED --> DVC
+  end
+
+  subgraph Preprocess
+    PARSE["src/data/preprocess.py\n(Parse Spider → model format)"]
+    PARSE --> PROCESSED
+  end
+
+  subgraph Orchestration
+    AIRFLOW["Airflow / Prefect\n(pipelines/text2sql_dag)"]
+    AIRFLOW --> PARSE
+    AIRFLOW --> TRAIN
+    AIRFLOW --> EVAL
+    AIRFLOW --> REGISTER
+  end
+
+  subgraph Training
+    TRAIN["src/training/train.py\n(baseline t5-small)"]
+    TRAIN --> MLFLOW_RUN["MLflow run & artifacts\n(mlruns / remote)"]
+  end
+
+  subgraph Evaluation
+    EVAL["src/training/evaluate.py\n(metrics: exact_match, exec_acc)"]
+    TRAIN --> EVAL
+    EVAL --> MLFLOW_RUN
+  end
+
+  subgraph ModelRegistry
+    REGISTER["src/training/register_model.py\n(mlflow register)"]
+    MLFLOW_RUN --> REGISTER
+    REGISTER --> MODEL_REG["MLflow Model Registry\nmodels:/text2sql-model"]
+  end
+
+  subgraph Serving
+    API["src/api/app.py\n(FastAPI)"]
+    DOCKER["docker/Dockerfile.api\n(container)"]
+    MODEL_REG --> API
+    API --> DOCKER
+    DOCKER --> DEPLOY["Deploy\n(k8s / Docker host / local)"]
+  end
+
+  subgraph CI_CD
+    GHA["GitHub Actions\n(lint, test, build image)"]
+    GHA --> AIRFLOW
+    GHA --> DOCKER
+  end
+
+  %% Trigger node thay cho edge label (tránh lỗi parser)
+  TRIGGER["data change\n(dvc hash)"]
+  DVC --> TRIGGER --> AIRFLOW
+
+  %% Code-change trigger
+  GHA --> AIRFLOW
