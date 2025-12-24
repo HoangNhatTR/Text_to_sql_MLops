@@ -36,4 +36,6 @@ Thumbs.db
 .dvc/
 *.dvc
 .dvcignore
+!.dvc
+!*.dvc
 mlruns/
