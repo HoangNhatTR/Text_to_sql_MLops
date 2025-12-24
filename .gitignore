@@ -13,6 +13,8 @@ venv/
 
 # Dataset / model
 data/
+!data/**/*.dvc
+!data/**/.gitignore
 datasets/
 checkpoints/
 models/
