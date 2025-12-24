@@ -33,9 +33,7 @@ Thumbs.db
 .idea/
 
 # DVC / MLflow
-.dvc/
-*.dvc
-.dvcignore
-!.dvc
-!*.dvc
+.dvc/cache/
+.dvc/tmp/
+.dvc/config.local
 mlruns/
