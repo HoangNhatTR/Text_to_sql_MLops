@@ -53,10 +53,10 @@ Contact
 Phân công :
 - ModelAI : Lê Anh Thiên
 - FastAPI : Nguyễn Đức Hải
-- DVC : Trần Nhật Hoàng - Nguyễn Đức Minh - Hà Vĩnh Phước
-- MLFlow : Trần Nhật Hoàng - Nguyễn Đức Minh - Hà Vĩnh Phước
+- DVC : Trần Nhật Hoàng 
+- MLFlow : Trần Nhật Hoàng  - Hà Vĩnh Phước
 - Airflow/Prefect : Trần Nhật Hoàng - Nguyễn Đức Minh - Hà Vĩnh Phước
-- CI/CD : Trần Nhật Hoàng - Nguyễn Đức Minh - Hà Vĩnh Phước
+- CI/CD : Nguyễn Đức Minh - Hà Vĩnh Phước
 
 ```mermaid
 flowchart TD
