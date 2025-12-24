@@ -1,5 +1,9 @@
 [core]
     autostage = true
-    remote = localremote
-['remote "localremote"']
-    url = D:\dvc-storage
+    remote = b2remote
+['remote "b2remote"']
+    url = s3://hoangnhattran13data
+    access_key_id = 004a04cc489dc440000000001
+    secret_access_key = hoangnhat13042002
+    endpointurl = https://s3.us-west-004.backblazeb2.com
+    region = us-west-004
