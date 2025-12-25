@@ -18,6 +18,8 @@ data/
 datasets/
 checkpoints/
 models/
+!models/t5-small/checkpoint.dvc
+!models/t5-small/checkpoint/**
 *.pt
 *.pth
 *.ckpt
