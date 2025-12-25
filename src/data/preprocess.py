@@ -74,8 +74,8 @@ def preprocess_dataset(raw_path: str, processed_path: str):
     with open(dev_output, "w", encoding="utf-8") as f:
         json.dump(dev_processed, f, indent=2, ensure_ascii=False)
     
-    print(f"✅ Saved {len(train_processed)} training examples to {train_output}")
-    print(f"✅ Saved {len(dev_processed)} dev examples to {dev_output}")
+    print(f"[OK] Saved {len(train_processed)} training examples to {train_output}")
+    print(f"[OK] Saved {len(dev_processed)} dev examples to {dev_output}")
 
 if __name__ == "__main__": 
     RAW_PATH = "data/raw/spider"
