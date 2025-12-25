@@ -39,3 +39,17 @@ Thumbs.db
 .dvc/tmp/
 .dvc/config.local
 mlruns/
+
+# MLflow
+mlflow.db
+mlflow_model_artifacts/
+mlruns/
+
+# Evaluation results
+eval_results/
+
+# Wandb
+wandb/
+
+# DVC tmp
+.dvc/tmp/
