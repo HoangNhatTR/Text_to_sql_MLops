@@ -1,0 +1,62 @@
+# Git
+.git
+.gitignore
+
+# DVC
+.dvc/tmp
+.dvc/cache
+data/
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+.venv
+venv/
+env/
+.env
+
+# MLflow local files
+mlflow.db
+mlruns/
+mlflow_model_artifacts/
+
+# Evaluation results
+eval_results/
+
+# Wandb
+wandb/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Tests
+tests/
+pytest_cache/
+.coverage
+
+# Documentation
+docs/
+*.md
+!README.md
+
+# Other unnecessary files
+*.tar.gz
+*.zip

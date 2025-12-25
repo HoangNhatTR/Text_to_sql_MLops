@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  # FastAPI Text2SQL Service
+  text2sql-api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.api
+    container_name: text2sql-api
+    ports:
+      - "8000:8000"
+    environment:
+      - MODEL_PATH=models/t5-small/checkpoint
+      - USE_MLFLOW=false
+    volumes:
+      # Mount model checkpoint (optional - for development)
+      # - ../models:/app/models:ro
+      - text2sql-logs:/app/logs
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    restart: unless-stopped
+
+  # MLflow Tracking Server (optional)
+  mlflow:
+    image: python:3.10-slim
+    container_name: mlflow-server
+    working_dir: /mlflow
+    command: >
+      bash -c "pip install mlflow && mlflow server 
+      --backend-store-uri sqlite:///mlflow.db 
+      --default-artifact-root /mlflow/artifacts 
+      --host 0.0.0.0 
+      --port 5000"
+    ports:
+      - "5000:5000"
+    volumes:
+      - mlflow-data:/mlflow
+    restart: unless-stopped
+
+volumes:
+  text2sql-logs:
+  mlflow-data:
