@@ -5,7 +5,7 @@ Mục tiêu
 - Tập trung vào: chuẩn hóa dữ liệu + data versioning (DVC), training baseline nhỏ (t5-small), experiment tracking (MLflow), orchestration (Airflow/Prefect), serving (FastAPI), containerization & CI/CD.
 
 Dataset
-- Sử dụng: Spider dataset (v2 recommended).
+- Sử dụng: Spider dataset .
 - Thư mục dữ liệu:
   - `data/raw/` — dữ liệu gốc (raw JSON/SQL).
   - `data/processed/` — dữ liệu đã chuẩn hóa (model-friendly).
