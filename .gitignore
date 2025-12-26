@@ -49,6 +49,9 @@ mlruns/
 
 # Evaluation results
 eval_results/
+ 
+# Scripts executed by Airflow (keep executable wrappers tracked)
+!scripts/*.sh
 
 # Wandb
 wandb/
