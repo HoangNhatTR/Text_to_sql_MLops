@@ -12,22 +12,22 @@ with DAG(
 
     pull_and_preprocess = BashOperator(
         task_id='dvc_pull_and_preprocess',
-        bash_command='bash /opt/airflow/repo/scripts/run_preprocess.sh',
+        bash_command='{% raw %}bash /opt/airflow/repo/scripts/run_preprocess.sh{% endraw %}',
     )
 
     train = BashOperator(
         task_id='train_model',
-        bash_command='bash /opt/airflow/repo/scripts/run_train.sh',
+        bash_command='{% raw %}bash /opt/airflow/repo/scripts/run_train.sh{% endraw %}',
     )
 
     evaluate = BashOperator(
         task_id='evaluate_model',
-        bash_command='bash /opt/airflow/repo/scripts/run_evaluate.sh',
+        bash_command='{% raw %}bash /opt/airflow/repo/scripts/run_evaluate.sh{% endraw %}',
     )
 
     register = BashOperator(
         task_id='register_model',
-        bash_command='bash /opt/airflow/repo/scripts/run_register.sh',
+        bash_command='{% raw %}bash /opt/airflow/repo/scripts/run_register.sh{% endraw %}',
     )
 
     pull_and_preprocess >> train >> evaluate >> register
